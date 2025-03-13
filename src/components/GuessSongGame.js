@@ -4,7 +4,7 @@ import YouTube from "react-youtube";
 import { Button } from "../components/ui/button";
 
 // const socket = io("http://localhost:5000");
-const socket = io(process.env.REACT_APP_BACKEND_URL, {
+const socket = io("wss://songguessrbackend-production.up.railway.app", {
   transports: ["websocket"],
 });
 
