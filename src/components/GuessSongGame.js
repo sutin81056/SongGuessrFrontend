@@ -3,7 +3,10 @@ import { io } from "socket.io-client";
 import YouTube from "react-youtube";
 import { Button } from "../components/ui/button";
 
-const socket = io("http://localhost:5000");
+// const socket = io("http://localhost:5000");
+const socket = io("https://courteous-exploration-production.up.railway.app", {
+  transports: ["websocket"],
+});
 
 export default function GuessSongGame() {
   const [videoId, setVideoId] = useState("");
