@@ -1,4 +1,5 @@
 import { io } from "socket.io-client";
+console.log("Backend URL:", process.env.REACT_APP_BACKEND_URL);
 
 const socket = io(
   process.env.REACT_APP_BACKEND_URL ||
