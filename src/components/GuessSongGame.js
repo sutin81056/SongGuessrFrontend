@@ -48,7 +48,7 @@ export default function GuessSongGame() {
     fetchGameData();
     const interval = setInterval(fetchGameData, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [videoId]);
 
   const playNewSong = async () => {
     const url = prompt("請貼上 YouTube 影片網址:");
