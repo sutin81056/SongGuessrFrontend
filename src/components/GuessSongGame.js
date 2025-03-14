@@ -17,7 +17,7 @@ export default function GuessSongGame() {
     const name = prompt("請輸入你的暱稱:");
     if (name) {
       setUsername(name);
-      fetch(`${API_URL}/newUser`, {
+      fetch(`${API_URL}/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name }),
@@ -30,7 +30,7 @@ export default function GuessSongGame() {
       try {
         const [usersRes, songRes] = await Promise.all([
           fetch(`${API_URL}/users`).then((res) => res.json()),
-          fetch(`${API_URL}/currentSong`).then((res) => res.json()),
+          fetch(`${API_URL}/song`).then((res) => res.json()),
         ]);
 
         setUsers(usersRes);
@@ -62,7 +62,7 @@ export default function GuessSongGame() {
         const videoId = match[1];
         const title = await fetchVideoTitle(videoId);
 
-        fetch(`${API_URL}/newSong`, {
+        fetch(`${API_URL}/song`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ videoId, dj: username, title }),
