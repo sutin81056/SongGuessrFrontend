@@ -34,7 +34,8 @@ export default function GuessSongGame() {
         ]);
 
         setUsers(usersRes);
-        if (songRes.videoId) {
+
+        if (songRes.videoId && songRes.videoId !== videoId) {
           setVideoId(songRes.videoId);
           setVideoTitle(songRes.title);
           setCurrentDJ(songRes.dj);
